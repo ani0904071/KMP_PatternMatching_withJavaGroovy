@@ -22,22 +22,22 @@ def "test patternMatching"() {
         String pattern7 = 'BEZOE'
         String description7 = 'ZOE'
 
-        assert service.hasPaymentMatch(pattern1, description1) == true
+        assert KMP_Custom.KMPSearch(pattern1.trim(), description1.trim()) == true
 
-        assert service.hasPaymentMatch(pattern2, description2) == true
+        assert KMP_Custom.KMPSearch(pattern2.trim(), description2.trim()) == true
 
-        assert service.hasPaymentMatch(pattern3, description3) == true
+        assert KMP_Custom.KMPSearch(pattern3.trim(), description3.trim()) == true
 
-        assert service.hasPaymentMatch(pattern4, description4) == false
+        assert KMP_Custom.KMPSearch(pattern4.trim(), description4.trim()) == false
 
-        assert service.hasPaymentMatch(pattern5, description5) == false
+        assert KMP_Custom.KMPSearch(pattern5.trim(), description5.trim()) == false
 
-        assert service.hasPaymentMatch(pattern6, description6) == true
+        assert KMP_Custom.KMPSearch(pattern6.trim(), description6.trim()) == true
 
-        assert service.hasPaymentMatch(pattern7, description7) == false
+        assert KMP_Custom.KMPSearch(pattern7.trim(), description7.trim()) == false
 
         when:
-        service.hasPaymentMatch(pattern7, description7)
+        KMP_Custom.KMPSearch(pattern7.trim(), description7.trim())
         then:
-        service.hasPaymentMatch(pattern7, description7) == false
+        KMP_Custom.KMPSearch(pattern7.trim(), description7.trim()) == false
     }
